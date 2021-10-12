@@ -55,14 +55,15 @@ function draw() {
 }
 
 function keyPressed() {
-  if (keyCode === 'space') {
-    arrow = new PlayerArrow(340, playerBase.position.y - 112, 120, 120, player.angle);
+  if (keyCode === 32) {
+    arrow = new PlayerArrow(playerArcher.body.position.x, playerArcher.body.position.y, 100, 10, playerArcher.body.angle);
+    Matter.Body.setAngle(arrow.body, playerArcher.body.angle);
   }
 }
 
 function keyReleased() {
-  if (keyCode === 'space') {
-    arrow.shoot(arrow.angle);
+  if (keyCode === 32) {
+    arrow.shoot(playerArcher.body.angle);
   }
 }
 
